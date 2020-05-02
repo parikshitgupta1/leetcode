@@ -1,5 +1,5 @@
 class Solution {
-    int f(int n) { // log(N)
+    int f(int n) { // log(N) //
         int sum = 0;
         while(n) {
             int digit = n % 10;
