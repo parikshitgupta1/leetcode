@@ -1,4 +1,4 @@
-class Solution:
+class Solution: 
     def maxSubarraySumCircular(self, A: List[int]) -> int:
         def kadane(A):
             best = float("-inf")
