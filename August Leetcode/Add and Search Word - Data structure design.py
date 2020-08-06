@@ -4,34 +4,33 @@ class WordDictionary:
         """
         Initialize your data structure here.
         """
-        self.dict = []
-        
+        self.trie = {}
 
+    def __repr__(self):
+        return repr(self.trie)
+    
     def addWord(self, word: str) -> None:
         """
         Adds a word into the data structure.
         """
-        self.dict.append(word)
+        node = self.trie
+        for letter in word: 
+            if letter not in node:
+                node[letter] = {}
+            node = node[letter]
+        node['*'] = True  # denotes a completed word
         
-
     def search(self, word: str) -> bool:
         """
-        Returns if the word is in the data structure. A word could contain the dot character '.' to represent any one letter. less space than 93%
+        Returns if the word is in the data structure. A word could contain the dot character '.' to represent any one letter.
         """
-        n = len(word)
-        for s in self.dict:
-            if len(s) != n:
-                continue
-            
-            flag = True
-            for i in range(len(word)):
-                if word[i]=='.':
-                    continue
-                
-                if word[i]!=s[i]:
-                    flag = False
-                    break
-                    
-            if flag:
-                return True
-        return False
+        return self.searchNode(self.trie, word)
+
+    def searchNode(self, node, word: str) -> bool:
+        for index, letter in enumerate(word):
+            if letter == '.':
+                return any(self.searchNode(node[w], word[index+1:]) for w in node if w != '*')
+            if letter not in node: return False
+            node = node[letter]
+        return '*' in node
+    
