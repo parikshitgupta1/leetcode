@@ -1,15 +1,18 @@
 class Solution:
-    def nextGreaterElement(self, n: int) -> int:
-        n = [int(i) for i in str(n)]
-        for i in range(2, len(n) + 1):
-            b, f = 1, n[-i]
-            for j in range(1, 10 - f):
-                if f + j in n[-i + 1:]:
-                    b = 0
-                    break
-            if b == 1: continue
-            n[n.index(f + j, -i)], n[-i] = f, f + j
-            n[-i + 1:] = sorted(n[-i + 1:])
-            n = int("".join([str(i) for i in n]))
-            return n if n < 2 ** 31 else -1
-        return -1
+    def nextGreaterElement(self, n):
+        digits = list(str(n))
+        i = len(digits) - 1
+        while i-1 >= 0 and digits[i] <= digits[i-1]:
+            i -= 1
+            
+        if i == 0: return -1
+        
+        j = i
+        while j+1 < len(digits) and digits[j+1] > digits[i-1]:
+            j += 1
+        
+        digits[i-1], digits[j] = digits[j], digits[i-1]
+        digits[i:] = digits[i:][::-1]
+        ret = int(''.join(digits))
+        
+        return ret if ret < 1<<31 else -1
