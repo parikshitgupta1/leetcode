@@ -14,4 +14,5 @@ jobs:
       with:
         python-version: 3.9
     - name: Run Solutions
+      working-directory: ./July 2021
       run: for sol in *.py; do python3 "$sol"; done;
