@@ -1,3 +1,13 @@
+from typing import List
+
+
+class TreeNode:
+    ''' Definition for a binary tree node. '''
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
 class Solution:
     def pathSum(self, root: TreeNode, targetSum: int) -> List[List[int]]:
         def dfs(root, targetSum, path):
