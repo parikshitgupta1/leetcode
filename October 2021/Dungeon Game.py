@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Solution:
     def calculateMinimumHP(self, dungeon: List[List[int]]) -> int:
         rows, cols = len(dungeon), len(dungeon[0])
