@@ -1,10 +1,9 @@
-"""
-Definition of TreeNode:
 class TreeNode:
-    def __init__(self, val):
+    ''' Definition for a binary tree node. '''
+    def __init__(self, val=0, left=None, right=None):
         self.val = val
-        self.left, self.right = None, None
-"""
+        self.left = left
+        self.right = right
 
 class Solution:
     def diameterOfBinaryTree(self, root: TreeNode) -> int:
