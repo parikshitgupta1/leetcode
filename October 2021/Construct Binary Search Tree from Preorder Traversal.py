@@ -1,4 +1,4 @@
-from typing import list
+from typing import List
 
 class Solution:
     def bstFromPreorder(self, preorder: List[int]) -> TreeNode:
