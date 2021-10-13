@@ -1,3 +1,5 @@
+from typing import list
+
 class Solution:
     def bstFromPreorder(self, preorder: List[int]) -> TreeNode:
         if not preorder: return None
