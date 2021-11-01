@@ -1,3 +1,5 @@
+from typing import List
+
 class Solution:
     def make_border(self,board,i,j,row,col):
         if i<0:
