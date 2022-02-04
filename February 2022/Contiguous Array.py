@@ -1,4 +1,4 @@
-from typing import Lists
+from typing import List
 
 class Solution:
     def findMaxLength(self, nums: List[int]) -> int:
